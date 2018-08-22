@@ -9,11 +9,13 @@ export default class SplashScreen {
         ctx = c.getContext('2d');
 
         // Make it visually fill the positioned parent
+        canvas.style.position = 'relative';
         canvas.style.width = '100%';
-        canvas.style.height = '600px';
+        canvas.style.paddingTop = '40%';
         // ...then set the internal size to match
         canvas.width  = canvas.offsetWidth;
         canvas.height = canvas.offsetHeight;
+        canvas.style.paddingTop = '0px';
         // c.setAttribute('height', c.width);
         // c.setAttribute('width', c.height);
 
