@@ -12,9 +12,7 @@ import splashScreen from './splashScreen';
 
 export class HomeComponent implements OnInit, AfterViewInit {
   animation;
-  registerData = { username: '', password: '', password2: '' };
-  message = '';
-  data: any;
+
   constructor(private http: HttpClient) { }
 
   @ViewChild('myCanvas') myCanvas: ElementRef;
@@ -25,16 +23,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const canvas = this.myCanvas.nativeElement;
     this.animation.init(canvas);
-  }
-  register() {
-    this.http.post('http://127.0.0.1:3001/register', this.registerData, {withCredentials: true})
-    .subscribe(resp => {
-      this.data = resp;
-      console.log(resp);
-      localStorage.setItem('username', this.data.username);
-      // this.router.navigate(['/']);
-    }, err => {
-      this.message = err.error.msg;
-    });
   }
 }

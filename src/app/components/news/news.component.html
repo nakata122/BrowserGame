@@ -1,0 +1,15 @@
+<div class='news-container'>
+  <h2>Latest news</h2>
+  <div *ngIf="News.data">
+  <div class='news-card' *ngFor="let n of News.data.news" (click)="getArticle(n)">
+    <div class='img-top'>
+      <img class='img-top' src={{n.imageUrl}} alt='Not found' />
+    </div>
+    <div class='text-bottom'>
+        <h1>{{n.title}}</h1>
+        <p>{{n.content}}</p>
+    </div>
+  </div>
+  
+  </div>
+</div>
