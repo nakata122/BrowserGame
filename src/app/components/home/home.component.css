@@ -1,0 +1,6 @@
+.register-container {
+    position: absolute;
+    width: 200px;
+    padding-left: 30px;
+    z-index: 1;
+  }

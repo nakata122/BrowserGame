@@ -20,9 +20,6 @@ export class HeaderComponent implements OnInit {
   }
 
   login() {
-    const h = new Headers();
-    h.append('Content-Type', 'application/json');
-    h.append('Accept', 'application/json');
     this.http.post('http://127.0.0.1:3001/login', this.loginData, {withCredentials: true})
     .subscribe(resp => {
       this.data = resp;
