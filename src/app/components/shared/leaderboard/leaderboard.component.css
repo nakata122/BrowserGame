@@ -1,0 +1,12 @@
+.leaderboard {
+    position: absolute;
+    padding-top: 20px;
+    float: right;
+    right: 200px;
+    text-align: center;
+    z-index: 1;
+    color: white;
+}
+h2 {
+    color: white;
+}

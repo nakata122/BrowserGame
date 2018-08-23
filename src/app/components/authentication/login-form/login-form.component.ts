@@ -18,4 +18,7 @@ export class LoginFormComponent implements OnInit {
   login() {
     this.authService.login(this.loginData);
   }
+  logout() {
+    this.authService.logout();
+  }
 }

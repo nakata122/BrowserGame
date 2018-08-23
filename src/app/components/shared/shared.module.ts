@@ -7,6 +7,7 @@ import { AuthenticationModule } from '../../components/authentication/authentica
 import { ServicesModule } from '../../core/services/services.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { Router, RouterModule } from '@angular/router';
     HttpClientModule,
     HttpClient
   ],
-  declarations: [HeaderComponent, FooterComponent],
-  exports: [HeaderComponent, FooterComponent]
+  declarations: [HeaderComponent, FooterComponent, LeaderboardComponent],
+  exports: [HeaderComponent, FooterComponent, LeaderboardComponent]
 })
 export class SharedModule { }

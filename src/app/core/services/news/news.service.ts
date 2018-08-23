@@ -27,6 +27,12 @@ export class NewsService {
   }
 
   getById(id) {
-
+    this.http.get('http://127.0.0.1:3001/news/' + id, {withCredentials: true})
+    .subscribe(resp => {
+      this.data = resp.data;
+      console.log(resp);
+    }, err => {
+      this.message = err.error.msg;
+    });
   }
 }

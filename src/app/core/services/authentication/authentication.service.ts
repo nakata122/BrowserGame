@@ -8,6 +8,8 @@ export class AuthenticationService {
   redirectUrl: string;
   message: string;
   data: any;
+  user;
+  waiting = false;
 
   constructor(
     private http: HttpClient,
@@ -30,9 +32,9 @@ export class AuthenticationService {
     this.http.post('http://127.0.0.1:3001/register', registerData, {withCredentials: true})
     .subscribe(resp => {
       this.data = resp;
-      console.log(resp);
-      localStorage.setItem('username', this.data.username);
-      this.router.navigate(['']);
+      if (this.data.type === 'info') {
+        this.login(registerData);
+      }
     }, err => {
       this.message = err.error.msg;
     });
@@ -40,12 +42,26 @@ export class AuthenticationService {
 
   logout(): void {
     localStorage.setItem('username', '');
+    this.user = '';
   }
 
   isLoggedIn(): boolean {
     if (localStorage.getItem('username') !== '') {
+      if (!this.user && !this.waiting) {
+        this.waiting = true;
+        this.http.get('http://127.0.0.1:3001/roles', {withCredentials: true})
+        .subscribe(resp => {
+          this.user = resp;
+          this.waiting = false;
+          console.log(resp);
+        }, err => {
+          this.logout();
+          this.message = err.error.msg;
+        });
+      }
       return true;
     } else {
+      this.logout();
       return false;
     }
   }

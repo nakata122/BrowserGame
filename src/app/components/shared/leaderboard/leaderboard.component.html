@@ -1,0 +1,6 @@
+<div class="leaderboard" *ngIf="topTen">
+  <h2>Leaderboard</h2>
+  <div *ngFor="let username of topTen; let i = index">
+    <div>{{i + '.  ' + username}}</div>
+  </div>
+</div>

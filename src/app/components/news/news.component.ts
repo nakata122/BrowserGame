@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { AuthenticationService } from '../../core/services/authentication/authentication.service';
 import { NewsService } from '../../core/services/news/news.service';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NewsComponent implements OnInit {
 
-  constructor(private News: NewsService, private router: Router ) { }
+  constructor(private News: NewsService, private authService: AuthenticationService, private router: Router ) { }
 
   ngOnInit() {
     this.News.getAll();
@@ -18,5 +18,9 @@ export class NewsComponent implements OnInit {
 
   getArticle(article) {
     this.router.navigate(['/article/' + article._id]);
+  }
+
+  createNews() {
+    this.router.navigate(['/createNews']);
   }
 }

@@ -1,0 +1,35 @@
+.img-article {
+    width: 40%;
+    border-radius: 25px;
+}
+.news-container {
+    display:block;
+    z-index:1;
+    color: white;
+    height: 100%;
+    text-align: center;
+    min-height: 100%;
+}
+.news-container input {
+    display: block;
+    position: center;
+    color: white;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 4px;
+    padding: 5px 5px;
+    background: linear-gradient(#151515, #3f3f3f);
+}
+.news-container textarea {
+    display: block;
+    position: center;
+    color: white;
+    width: 50%;
+    height: 200px;
+    margin: auto;
+    padding: 5px 5px;
+    background: linear-gradient(#151515, #3f3f3f);
+}
+.news-container h2, h4{
+    color: white;
+}

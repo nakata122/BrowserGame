@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import splashScreen from './splashScreen';
@@ -10,7 +10,7 @@ import splashScreen from './splashScreen';
 })
 
 
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit,  OnDestroy {
   animation;
 
   constructor(private http: HttpClient) { }
@@ -23,5 +23,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     const canvas = this.myCanvas.nativeElement;
     this.animation.init(canvas);
+  }
+  ngOnDestroy() {
+    this.animation.unmount();
   }
 }

@@ -2,6 +2,6 @@
     position: absolute;
     padding-top: 20px;
     width: 200px;
-    padding-left: 30px;
+    left: 30px;
     z-index: 1;
   }

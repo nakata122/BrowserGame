@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { RoutesModule } from './routes/routes.module';
 import { NewsComponent } from './components/news/news.component';
 import { ArticleComponent } from './components/article/article.component';
+import { AuthenticationService } from './core/services/authentication/authentication.service';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ArticleComponent } from './components/article/article.component';
   ],
   providers: [
     HttpClientModule,
+    AuthenticationService,
     HttpClient
   ],
   bootstrap: [AppComponent]
