@@ -1,8 +1,6 @@
 <div class='news-container'>
   <h2>Latest news</h2>
-  <div *ngIf="authService.user">
-    <button *ngIf="authService.user.roles.includes('admin')" class="btn btn-secondary my-2 my-sm-0" (click)="createNews()">Create News</button>
-  </div>
+  <button *ngIf="authService.isAdmin()" class="btn btn-secondary my-2 my-sm-0" (click)="createNews()">Create News</button>
   <div *ngIf="News.data">
   <div class='news-card' *ngFor="let n of News.data.news" (click)="getArticle(n)">
     <div class='img-top'>

@@ -8,20 +8,19 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthenticationModule } from './components/authentication/authentication.module';
 import { FormsModule } from '@angular/forms';
 import { RoutesModule } from './routes/routes.module';
-import { NewsComponent } from './components/news/news.component';
-import { ArticleComponent } from './components/article/article.component';
+import { NewsModule } from './components/news/news.module';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
+import { AuthGuard } from './core/guards/authentication/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    NewsComponent,
-    ArticleComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NewsModule,
     HttpClientModule,
     AuthenticationModule,
     RoutesModule,
@@ -30,6 +29,7 @@ import { AuthenticationService } from './core/services/authentication/authentica
   providers: [
     HttpClientModule,
     AuthenticationService,
+    AuthGuard,
     HttpClient
   ],
   bootstrap: [AppComponent]

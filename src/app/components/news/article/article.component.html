@@ -1,0 +1,8 @@
+
+<div class='news-container' *ngIf="News.data">
+  <h2>{{News.data.title}}</h2>
+  <img class='img-article' src={{News.data.imageUrl}} alt='Not found' />
+  <h4>{{News.data.content}}</h4>
+  <button *ngIf="authService.isAdmin()" class="btn btn-secondary my-2 my-sm-0" (click)="editNews(News.data._id)">Edit News</button>
+  <button *ngIf="authService.isAdmin()" class="btn btn-secondary my-2 my-sm-0" (click)="deleteNews(News.data._id)">Delete News</button>
+</div>

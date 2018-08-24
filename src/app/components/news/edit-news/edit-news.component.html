@@ -1,0 +1,24 @@
+<form name="form" (ngSubmit)="f.form.valid && editNews()" #f="ngForm" novalidate>
+  <div class="form-group col-xs-4 col-md-4">
+      <label for="title">Title</label>
+      <input class="form-control mr-sm-2" type="text" name="title" [(ngModel)]="newsData.title" #title="ngModel" [ngClass]="{ 'is-invalid': f.submitted && title.invalid }" required >
+      <div *ngIf="f.submitted && title.invalid" class="invalid-feedback">
+          <div *ngIf="title.errors.required">Title is required</div>
+      </div>
+  </div>
+
+  <div class="form-group col-xs-4 col-md-4">
+      <label for="imageUrl">Image</label>
+      <input class="form-control mr-sm-2" type="text" name="imageUrl" [(ngModel)]="newsData.imageUrl" #imageUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }" required>
+      <div *ngIf="f.submitted && imageUrl.invalid" class="invalid-feedback">
+          <div *ngIf="imageUrl.errors.required">Image Url is required</div>
+      </div>
+  </div>
+
+  <div class="form-group col-xs-4 col-md-4">
+    <label for="content">Content</label>
+    <textarea class="form-control mr-sm-2" type="text" name="content" [(ngModel)]="newsData.content" #content="ngModel" > </textarea>
+  </div>
+
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">Edit news</button>
+</form>
