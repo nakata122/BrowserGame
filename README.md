@@ -1,27 +1,23 @@
 # BrowserGame
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+Сайт за браузърна игра. Напревих сървъра с Node.js и Express, font-end: Angular. 
 
-## Development server
+## Home page
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Canvas animation login and register form.
 
-## Code scaffolding
+## News page
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Lists all the news and if clicked shows details. If the user is admin he can create, edit and delete news, these are separate pages.
 
-## Build
+## Inventory page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Only logged in. Lists all of the items that the user has. There is a button addItems, which is for test purposes it adds a random item from all of the items that the admin created. When clicking on sertain item a Dialog Material opens from where you can put it for auction. The admin gets all of the items.
 
-## Running unit tests
+## Auction page
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+If there are ongoing auctions they will appear there. Everyone can bid even the author, if he has enough money. The auction is 20 seconds. You can have only one auction at a time. When the auction is done the item and money are transfered, if someone bid of course.
 
-## Running end-to-end tests
+## Forms
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I used template driven forms and one reactive for the dialog, because there was no way to use a template form there.
