@@ -1,0 +1,24 @@
+<form name="form" (ngSubmit)="f.form.valid && createItem()" #f="ngForm" novalidate>
+  <div class="form-group col-xs-4 col-md-4">
+      <label for="name">Name</label>
+      <input class="form-control mr-sm-2" type="text" name="name" [(ngModel)]="itemData.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required >
+      <div *ngIf="f.submitted && name.invalid" class="invalid-feedback">
+          <div *ngIf="name.errors.required">Name is required</div>
+      </div>
+  </div>
+
+  <div class="form-group col-xs-4 col-md-4">
+      <label for="imageUrl">Image</label>
+      <input class="form-control mr-sm-2" type="text" name="imageUrl" [(ngModel)]="itemData.imageUrl" #imageUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && imageUrl.invalid }" required>
+      <div *ngIf="f.submitted && imageUrl.invalid" class="invalid-feedback">
+          <div *ngIf="imageUrl.errors.required">Image Url is required</div>
+      </div>
+  </div>
+
+  <div class="form-group col-xs-4 col-md-4">
+    <label for="description">Content</label>
+    <textarea class="form-control mr-sm-2" type="text" name="description" [(ngModel)]="itemData.description" #description="ngModel" > </textarea>
+  </div>
+
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">Create item</button>
+</form>

@@ -13,12 +13,13 @@
         <a class="nav-link" [routerLink]="['/news']">News</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
-        <a class="nav-link" [routerLink]="['/inventory']">Invenotry</a>
+        <a class="nav-link" [routerLink]="['/inventory']">Inventory</a>
       </li>
       <li class="nav-item" *ngIf="authService.isLoggedIn()">
         <a class="nav-link" [routerLink]="['/auction']">Auction</a>
       </li>
     </ul>
+    <h2 *ngIf="authService.isLoggedIn()">Balance: {{authService.user.money}}</h2>
     <app-login-form></app-login-form>
   </div>
 </nav>

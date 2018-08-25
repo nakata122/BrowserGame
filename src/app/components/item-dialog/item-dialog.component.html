@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>{{item.name}}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    Auction this item for 
+    <input matInput type="number" name="price" formControlName="price"/>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="save()">Yes</button>
+  <button mat-raised-button (click)="closeDialog()">No</button>
+</mat-dialog-actions>

@@ -1,0 +1,7 @@
+<div class='news-container' *ngIf="itemService.auctions">
+  <div *ngFor="let auc of itemService.auctions">
+    <h2>{{auc.item.name}}</h2>
+    <h4>{{auc.highestBid.bid}}</h4>
+    <button class="btn btn-secondary my-2 my-sm-0" (click)="bid(auc._id)">Bid</button>
+  </div>
+</div>

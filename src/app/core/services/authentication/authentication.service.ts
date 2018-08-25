@@ -41,6 +41,9 @@ export class AuthenticationService {
   logout(): void {
     localStorage.setItem('username', '');
     this.user = '';
+    if (this.router.url !== '/') {
+      this.router.navigate(['']);
+    }
   }
 
   isLoggedIn(): boolean {
@@ -54,12 +57,13 @@ export class AuthenticationService {
           console.log(resp);
         }, err => {
           this.logout();
+          this.waiting = false;
           this.message = err.error.msg;
         });
       }
       return true;
     } else {
-      this.logout();
+      this.user = '';
       return false;
     }
   }

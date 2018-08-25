@@ -1,0 +1,13 @@
+<div>
+  <button *ngIf="authService.isLoggedIn()" class="btn btn-secondary btn_center" (click)="addItem()">Add item</button>
+  <button *ngIf="authService.isAdmin()" class="btn btn-secondary btn_center" (click)="createItem()">Create item</button>
+  <table class='inventory' align='center' *ngIf="itemService.data">
+      <tbody>
+        <tr *ngFor="let items of itemService.splitData">
+          <td *ngFor="let item of items">
+            <img class='item-img' src={{item.imageUrl}} (click)="openDialog(item)">
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
